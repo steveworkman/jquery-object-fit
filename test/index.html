@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jquery.ObjectFit Test Suite</title>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+
+	<script type="text/javascript" src="../jquery.object-fit.js"></script>
+	<script type="text/javascript" src="tests.js"></script>
+
+	<style>
+		.container {
+			background-color: red;
+			margin: 10px;
+		}
+
+		#container1, #container3, #container5, #container7 {
+			height: 200px;
+			width: 200px;
+		}
+
+		#container2, #container4, #container6, #container8 {
+			height: 100px;
+			width: 200px;
+		}
+
+		.object {
+			background-color: rgba(0, 255, 0, 0.5);
+		}
+	</style>
+
+	<script>
+		$(function() {
+			$('.contain').objectFit('contain');
+			$('.cover').objectFit('cover');
+		});
+	</script>
+</head>
+<body>
+	<h1 id="qunit-header">jquery.ObjectFit Test Suite</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+
+  <ol id="qunit-tests"></ol>
+  <div id="mod-output"></div>
+  	<h3>Container 1, large image should fit horizontally</h3>
+	<div id="container1" class="container">
+		<img class="contain" src="image.jpg" alt="ratio test">
+	</div>
+	<h3>Container 2, large image should fit vertically</h3>
+	<div id="container2" class="container">
+			<img class="contain" src="image.jpg" alt="ratio test">
+	</div>
+	<h3>Container 3, small image should stretch horizontally</h3>
+	<div id="container3" class="container">
+		<img class="contain" src="smallimage.jpg" alt="ratio test">
+	</div>
+	<h3>Container 4, small image should stretch vertically</h3>
+	<div id="container4" class="container">
+			<img class="contain" src="smallimage.jpg" alt="ratio test">
+	</div>
+
+	<h3>Container 5, large image should overflow in both directions</h3>
+	<div id="container5" class="container">
+		<img class="cover" src="image.jpg" alt="ratio test">
+	</div>
+	<h3>Container 6, large image should overflow in both directions</h3>
+	<div id="container6" class="container">
+			<img class="cover" src="image.jpg" alt="ratio test">
+	</div>
+	<h3>Container 7, small image should stretch to cover and overflow horizontally</h3>
+	<div id="container7" class="container">
+		<img class="cover" src="smallimage.jpg" alt="ratio test">
+	</div>
+	<h3>Container 8, small image should stretch to cover and overflow horizontally, but more so than the last</h3>
+	<div id="container8" class="container">
+			<img class="cover" src="smallimage.jpg" alt="ratio test">
+	</div>
+
+</body>
+</html>
