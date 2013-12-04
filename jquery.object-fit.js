@@ -72,7 +72,7 @@
 		}
 
 		var $this = $(elem),
-				ratio = $this.data('ratio'),
+				ratio,
 				parent = findParentRatio($this), // The parent element may not have any width or height, so find one that does
 				pic_real_width,
 				pic_real_height;
@@ -82,11 +82,7 @@
 				pic_real_width = this.width;   // Note: $(this).width() will not
 				pic_real_height = this.height; // work for in memory images.
 
-				// set the ratio of the object. we assume, that the ratio of the object never changes.
-				if (ratio === undefined) {
-					ratio = pic_real_width / pic_real_height;
-					$this.data('ratio', ratio);
-				}
+				ratio = pic_real_width / pic_real_height;
 
 				// Set the width/height
 				if (type === 'contain') {
